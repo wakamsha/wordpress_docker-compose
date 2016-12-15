@@ -9,6 +9,8 @@ services:
         environment:
             WORDPRESS_DB_HOST: "db:3306"
         env_file: .env
+        volumes:
+            - ./themes/bones:/var/www/html/wp-content/themes/bones
     db:
         image: mysql:latest
         env_file: .env

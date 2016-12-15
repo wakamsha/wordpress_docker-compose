@@ -16,6 +16,7 @@ services:
         env_file: .env
         volumes:
             - db-data:/var/lib/mysql
+            - ./db-data/mysql.dump.sql:/docker-entrypoint-initdb.d/install_wordpress.sql
 
 # databaseのように永続的なストレージが欲しい場合に必要な設定
 # https://docs.docker.com/compose/compose-file/#volume-configuration-reference

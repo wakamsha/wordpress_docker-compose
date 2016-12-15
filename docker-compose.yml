@@ -1,0 +1,22 @@
+version: "2"
+services:
+    wordpress:
+        image: wordpress:latest
+        ports:
+            - "9000:80"
+        depends_on:
+            - db
+        environment:
+            WORDPRESS_DB_HOST: "db:3306"
+        env_file: .env
+    db:
+        image: mysql:latest
+        env_file: .env
+        volumes:
+            - db-data:/var/lib/mysql
+
+# databaseのように永続的なストレージが欲しい場合に必要な設定
+# https://docs.docker.com/compose/compose-file/#volume-configuration-reference
+volumes:
+    db-data:
+        driver: local

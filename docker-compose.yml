@@ -1,7 +1,7 @@
 version: "2"
 services:
     wordpress:
-        image: wordpress:latest
+        build: ./my-wordpress
         ports:
             - "9000:80"
         depends_on:
